@@ -1,0 +1,18 @@
+{
+  "name": "FiqrQ - Islamic Companion",
+  "short_name": "FiqrQ",
+  "description": "Your premium Islamic companion for Quran, Hadith and Dua",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0b06",
+  "theme_color": "#d4af37",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/uploads/file_00000000e1d071fa94d8c428638a67a8-019d393a-1148-70a9-a044-9ed66a28081d-1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

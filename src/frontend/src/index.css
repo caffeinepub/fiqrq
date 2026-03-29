@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* FiqrQ Design System - Dark Islamic theme */
+    --fiqrq-bg: #0d0b06;
+    --fiqrq-card: #1a1508;
+    --fiqrq-card-hover: #211c0a;
+    --fiqrq-gold: #d4af37;
+    --fiqrq-gold-dim: #a8892a;
+    --fiqrq-gold-glow: rgba(212, 175, 55, 0.15);
+    --fiqrq-text: #f5f0e8;
+    --fiqrq-text-dim: rgba(245, 240, 232, 0.65);
+    --fiqrq-border: rgba(212, 175, 55, 0.2);
+    --fiqrq-border-active: rgba(212, 175, 55, 0.6);
+    --fiqrq-nav-height: 68px;
+
+    /* shadcn compat */
+    --radius: 1rem;
+    --background: 0.07 0.012 75;
+    --foreground: 0.97 0.015 75;
+    --card: 0.11 0.018 75;
+    --card-foreground: 0.97 0.015 75;
+    --popover: 0.11 0.018 75;
+    --popover-foreground: 0.97 0.015 75;
+    --primary: 0.77 0.12 75;
+    --primary-foreground: 0.07 0.012 75;
+    --secondary: 0.15 0.022 75;
+    --secondary-foreground: 0.97 0.015 75;
+    --muted: 0.15 0.022 75;
+    --muted-foreground: 0.65 0.04 75;
+    --accent: 0.77 0.12 75;
+    --accent-foreground: 0.07 0.012 75;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.77 0.12 75 / 20%;
+    --input: 0.77 0.12 75 / 20%;
+    --ring: 0.77 0.12 75;
+    --chart-1: 0.77 0.12 75;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.11 0.018 75;
+    --sidebar-foreground: 0.97 0.015 75;
+    --sidebar-primary: 0.77 0.12 75;
+    --sidebar-primary-foreground: 0.07 0.012 75;
+    --sidebar-accent: 0.15 0.022 75;
+    --sidebar-accent-foreground: 0.97 0.015 75;
+    --sidebar-border: 0.77 0.12 75 / 20%;
+    --sidebar-ring: 0.77 0.12 75;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    background-color: var(--fiqrq-bg);
+    color: var(--fiqrq-text);
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--fiqrq-bg);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--fiqrq-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--fiqrq-gold-dim);
+    border-radius: 2px;
+  }
+}
+
+/* Arabic text styles */
+.arabic-text {
+  font-family: "Amiri", serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.2;
+  color: var(--fiqrq-text);
+}
+
+.arabic-large {
+  font-size: 1.6rem;
+}
+
+.arabic-medium {
+  font-size: 1.3rem;
+}
+
+/* Card styles */
+.fiqrq-card {
+  background-color: var(--fiqrq-card);
+  border: 1px solid var(--fiqrq-border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.fiqrq-card-gold {
+  background-color: var(--fiqrq-card);
+  border: 1px solid var(--fiqrq-border-active);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 24px rgba(212, 175, 55, 0.1);
+}
+
+/* Gold text */
+.text-gold {
+  color: var(--fiqrq-gold);
+}
+
+.text-cream {
+  color: var(--fiqrq-text);
+}
+
+.text-cream-dim {
+  color: var(--fiqrq-text-dim);
+}
+
+/* Spinner animation */
+@keyframes spin-gold {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(212, 175, 55, 0.15);
+  border-top-color: var(--fiqrq-gold);
+  border-radius: 50%;
+  animation: spin-gold 0.8s linear infinite;
+}
+
+/* Page container */
+.page-container {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background-color: var(--fiqrq-bg);
+  padding-bottom: calc(var(--fiqrq-nav-height) + 16px);
+}
+
+/* Ayah card playing state */
+.ayah-playing {
+  border-left: 3px solid var(--fiqrq-gold) !important;
+  box-shadow: 0 0 20px var(--fiqrq-gold-glow) !important;
+  background-color: var(--fiqrq-card-hover) !important;
+}
+
+/* Action button */
+.action-btn {
+  background: transparent;
+  border: 1px solid var(--fiqrq-border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: var(--fiqrq-text-dim);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.action-btn:hover,
+.action-btn.active {
+  border-color: var(--fiqrq-gold);
+  color: var(--fiqrq-gold);
+  background: var(--fiqrq-gold-glow);
+}
+
+.action-btn.play-btn {
+  background: var(--fiqrq-gold-glow);
+  border-color: var(--fiqrq-gold);
+  color: var(--fiqrq-gold);
+}
+
+/* Gold separator */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--fiqrq-gold-dim),
+    transparent
+  );
+  margin: 1rem 0;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Select element */
+select.fiqrq-select {
+  background-color: var(--fiqrq-card);
+  border: 1px solid var(--fiqrq-border);
+  border-radius: 10px;
+  color: var(--fiqrq-text);
+  padding: 10px 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  width: 100%;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4af37' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+select.fiqrq-select:focus {
+  outline: none;
+  border-color: var(--fiqrq-gold);
+}
